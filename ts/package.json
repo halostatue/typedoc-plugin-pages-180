@@ -1,0 +1,47 @@
+{
+  "name": "typedoc-plugin-pages-symlink-error-test",
+  "version": "0.0.0",
+  "license": "CC0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "pnpm exec tsup",
+    "build:all": "pnpm run build && pnpm run build:docs",
+    "build:docs": "pnpm exec typedoc",
+    "build:simple": "pnpm exec tsup --no-dts-resolve --no-dts",
+    "build:watch": "concurrently 'pnpm exec tsup --watch' 'pnpm exec typedoc --watch --preserveWatchOutput'",
+    "cli": "pnpm exec ts-eager support/cli.ts",
+    "cli:generate": "pnpm exec ts-eager support/cli.ts generate",
+    "cli:run": "pnpm exec ts-eager support/cli.ts run",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint src/ test/ support/ --ext .js,.ts",
+    "prepublishOnly": "pnpm build"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "packageManager": "pnpm@^7.13.0",
+  "devDependencies": {
+    "@knodes/typedoc-plugin-pages": "^0.23.1",
+    "@tsconfig/node12": "latest",
+    "@types/base64-url": "^2.2.0",
+    "@types/node": "latest",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "concurrently": "latest",
+    "eslint": "latest",
+    "eslint-plugin-prettier": "latest",
+    "lunr": "^2.3.0",
+    "prettier": "latest",
+    "ts-eager": "latest",
+    "tsup": "latest",
+    "typedoc": "latest",
+    "typescript": "latest"
+  }
+}
